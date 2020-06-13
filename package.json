@@ -1,5 +1,5 @@
 {
-  "name": "@jumpfox/broker",
+  "name": "broker",
   "version": "1.0.0",
   "description": "a broker for having a centralised pub/sub capabilities",
   "main": "index.js",
