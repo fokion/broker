@@ -1,12 +1,13 @@
 {
-  "name": "broker",
+  "name": "@jumpfox/broker",
   "version": "1.0.0",
-  "description": "",
+  "description": "a broker for having a centralised pub/sub capabilities",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "keywords": ["eventbus","pub/sub"],
   "author": "Fokion Sotiropoulos",
   "license": "ISC",
   "devDependencies": {
