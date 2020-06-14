@@ -1,5 +1,5 @@
 # broker
-![.github/workflows/npm-publish.yml](https://github.com/jumpfoxltd/broker/workflows/.github/workflows/npm-publish.yml/badge.svg)
+![Build](https://github.com/jumpfoxltd/broker/workflows/Build/badge.svg?branch=master)
 
 Message Broker for Node.js applications
 
