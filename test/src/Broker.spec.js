@@ -1,5 +1,6 @@
 const Broker = require('../../src/Broker')
 const TOPIC = 'test'
+const {ERROR_TOPIC , ERROR_CALLBACK} = require('../../src/Messages')
 describe('Broker',()=>{
     it('should have publish',()=>{
         expect(Broker).toHaveProperty('publish')
@@ -17,14 +18,14 @@ describe('Broker',()=>{
         expect(Broker).toHaveProperty('getNumberOfSubscribers');
     })
     it('should reject if callback is not a method',async()=>{
-        await expect(Broker.subscribe('test',1)).rejects.toThrow(Broker.ERROR_CALLBACK)
+        await expect(Broker.subscribe('test',1)).rejects.toThrow(ERROR_CALLBACK)
     })
     it('should reject if topic is not a string',async()=>{
-        await expect(Broker.subscribe(false,()=>{})).rejects.toThrow(Broker.ERROR_TOPIC)
-        await expect(Broker.subscribe(()=>{},()=>{})).rejects.toThrow(Broker.ERROR_TOPIC)
-        await expect(Broker.subscribe(null,()=>{})).rejects.toThrow(Broker.ERROR_TOPIC)
-        await expect(Broker.subscribe(undefined,()=>{})).rejects.toThrow(Broker.ERROR_TOPIC)
-        await expect(Broker.subscribe(123,()=>{})).rejects.toThrow(Broker.ERROR_TOPIC)
+        await expect(Broker.subscribe(false,()=>{})).rejects.toThrow(ERROR_TOPIC)
+        await expect(Broker.subscribe(()=>{},()=>{})).rejects.toThrow(ERROR_TOPIC)
+        await expect(Broker.subscribe(null,()=>{})).rejects.toThrow(ERROR_TOPIC)
+        await expect(Broker.subscribe(undefined,()=>{})).rejects.toThrow(ERROR_TOPIC)
+        await expect(Broker.subscribe(123,()=>{})).rejects.toThrow(ERROR_TOPIC)
     })
     describe('subscribe / unsubscribe',()=> {
 

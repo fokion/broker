@@ -1,3 +1,4 @@
+const {ERROR_TOPIC , ERROR_CALLBACK} = require('./Messages');
 class Broker {
     constructor() {
         const callbacksByTopic = {};
@@ -32,7 +33,7 @@ class Broker {
         }
         this.publish = (topic, payload) => {
             if(!Broker.isString(topic)){
-                return Promise.reject(Broker.ERROR_TOPIC)
+                return Promise.reject(ERROR_TOPIC)
             }
             const promises = callbacksByTopic[topic].map((cb) => {
                 return Promise.resolve(cb.call(this,payload))
@@ -57,13 +58,13 @@ class Broker {
 
     checkCallbackType(callback, reject) {
         if (!Broker.isFunction(callback)) {
-            reject(new Error(Broker.ERROR_CALLBACK));
+            reject(new Error(ERROR_CALLBACK));
         }
     }
 
     checkTopicType(topic, reject) {
         if (!Broker.isString(topic)) {
-            reject(new Error(Broker.ERROR_TOPIC));
+            reject(new Error(ERROR_TOPIC));
         }
     }
 
@@ -75,8 +76,7 @@ class Broker {
         return topic !== null && topic !== undefined && (typeof topic === "string") && topic.trim() !== '';
     }
 
-    static ERROR_CALLBACK = 'The callback needs to be a function that accepts the payload'
-    static ERROR_TOPIC =  'The topic needs to be type string with a proper value';
+
 
 }
 
