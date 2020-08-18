@@ -1,6 +1,6 @@
 {
   "name": "@jumpfoxltd/broker",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "a broker for having a centralised pub/sub capabilities",
   "main": "index.js",
   "scripts": {
